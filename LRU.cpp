@@ -170,14 +170,10 @@ private:
     int pageFaults = 0;   // 缺页次数
     double pageFaultRate; // 缺页率
     int pageSize;
-    std::vector<int> page;
+    std::vector<int> &page;
 
 public:
-    LRU(int PageSize, std::vector<int> Page)
-    {
-        pageSize = PageSize;
-        page = Page; // 初始化页面走向
-    }
+    LRU(int PageSize, std::vector<int> &Page) : pageSize(PageSize), page(Page) {}
 
     void Run()
     {
@@ -227,8 +223,8 @@ public:
                 pageFaults++; // 没有找到 缺页次数++
             }
             // 详细展示链表数据
-            LL.show();
-            std::cout << std::endl;
+            // LL.show();
+            // std::cout << std::endl;
 
             pageAccesses++; // 页面访问次数++
         }
