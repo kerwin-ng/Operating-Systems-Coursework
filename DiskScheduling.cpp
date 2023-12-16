@@ -239,6 +239,7 @@ int main()
             break;
 
         default:
+            std::cout << "选项无效 " << std::endl;
             break;
         }
 
